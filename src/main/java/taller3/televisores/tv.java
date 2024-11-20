@@ -1,76 +1,106 @@
-class TV:
-    numTV = 0
+package taller3.televisores;
 
-    def _init_(self, marca, encendido):
-        self.__marca = marca
-        self.__canal = 1
-        self.__precio = 500
-        self.__volumen = 1
-        self.__estado = encendido
-        self.__control = None
-        TV.numTV += 1
+public class TV {
+    private Marca marca;
+    private int canal = 1;
+    private int volumen = 1;
+    private int precio = 500;
+    private boolean estado;
+    private Control control;
 
-    def getMarca(self):
-        return self.__marca
+    private static int numTV = 0;
 
-    def setMarca(self, marcaNueva):
-        self.__marca = marcaNueva
+    public TV(Marca marca, boolean estado) {
+        this.marca = marca;
+        this.estado = estado;
+        numTV++;
+    }
 
-    def getCanal(self):
-        return self.__canal
+    public Marca getMarca() {
+        return marca;
+    }
 
-    def setCanal(self, nuevoCanal):
-        if self.__estado and 1 <= nuevoCanal <= 120:
-            self.__canal = nuevoCanal
+    public void setMarca(Marca marca) {
+        this.marca = marca;
+    }
 
-    def getPrecio(self):
-        return self.__precio
+    public int getCanal() {
+        return canal;
+    }
 
-    def setPrecio(self, precioNuevo):
-        self.__precio = precioNuevo
+    public void setCanal(int canal) {
+        if (estado && canal >= 1 && canal <= 120) {
+            this.canal = canal;
+        }
+    }
 
-    def getVolumen(self):
-        return self.__volumen
+    public int getVolumen() {
+        return volumen;
+    }
 
-    def setVolumen(self, nuevoVolumen):
-        if self.__estado and 0 <= nuevoVolumen <= 7:
-            self.__volumen = nuevoVolumen
+    public void setVolumen(int volumen) {
+        if (estado && volumen >= 0 && volumen <= 7) {
+            this.volumen = volumen;
+        }
+    }
 
-    def getControl(self):
-        return self.__control
+    public int getPrecio() {
+        return precio;
+    }
 
-    def setControl(self, controlNuevo):
-        self.__control = controlNuevo
+    public void setPrecio(int precio) {
+        this.precio = precio;
+    }
 
-    @staticmethod
-    def getNumTV():
-        return TV.numTV
+    public Control getControl() {
+        return control;
+    }
 
-    @staticmethod
-    def setNumTV(cantidad):
-        TV.numTV = cantidad
+    public void setControl(Control control) {
+        this.control = control;
+    }
 
-    def turnOn(self):
-        self.__estado = True
+    public static int getNumTV() {
+        return numTV;
+    }
 
-    def turnOff(self):
-        self.__estado = False
+    public static void setNumTV(int numTV) {
+        TV.numTV = numTV;
+    }
 
-    def getEstado(self):
-        return self.__estado
+    public void turnOn() {
+        this.estado = true;
+    }
 
-    def canalUp(self):
-        if self._estado and self._canal < 120:
-            self.__canal += 1
+    public void turnOff() {
+        this.estado = false;
+    }
 
-    def canalDown(self):
-        if self._estado and self._canal > 1:
-            self.__canal -= 1
+    public boolean getEstado() {
+        return estado;
+    }
 
-    def volumenUp(self):
-        if self._estado and self._volumen < 7:
-            self.__volumen += 1
+    public void canalUp() {
+        if (estado && canal < 120) {
+            canal++;
+        }
+    }
 
-    def volumenDown(self):
-        if self._estado and self._volumen > 0:
-            self.__volumen -= 1
+    public void canalDown() {
+        if (estado && canal > 1) {
+            canal--;
+        }
+    }
+
+    public void volumenUp() {
+        if (estado && volumen < 7) {
+            volumen++;
+        }
+    }
+
+    public void volumenDown() {
+        if (estado && volumen > 0) {
+            volumen--;
+        }
+    }
+}
