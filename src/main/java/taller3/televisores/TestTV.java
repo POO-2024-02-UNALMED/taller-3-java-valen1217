@@ -1,5 +1,3 @@
-package taller3.televisores;
-
 public class TestTV {
 	    public static void main(String[] args) {
         Marca samsung = new Marca("Samsung");
