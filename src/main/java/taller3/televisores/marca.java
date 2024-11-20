@@ -1,10 +1,15 @@
+public class Marca {
+    private String nombre;
 
-class Marca:
-    def _init_(self, nombre):
-        self.__nombre = nombre
+    public Marca(String nombre) {
+        this.nombre = nombre;
+    }
 
-    def getNombre(self):
-        return self.__nombre
+    public String getNombre() {
+        return nombre;
+    }
 
-    def setNombre(self, nuevoNombre):
-        self.__nombre = nuevoNombre
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+}
